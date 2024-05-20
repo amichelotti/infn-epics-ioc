@@ -71,7 +71,8 @@ jobs:
       - name: test-supports
         run: |
           # List all files in the support directory
-          supps=$(ls support/*)
+          ls -latr
+          supps=$(ls tests/support/*)
           # Define the path to the ibek definition files
           defs='/epics/ibek-defs/*.ibek.support.yaml'
           # Iterate over each support file
