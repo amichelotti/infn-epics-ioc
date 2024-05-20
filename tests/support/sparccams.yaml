@@ -32,15 +32,15 @@ entities:
     ENABLED: 1
 
 
-  # - type: ADCore.NDStats
-  #   PORT: ACE01.STATS
-  #   NDARRAY_PORT: ACE01
-  #   HIST_SIZE: 50
-  #   P: "SPARC:ACE01:"
-  #   R: "Stats1:"
-  #   XSIZE: 1400
-  #   YSIZE: 768
-  #   ENABLED: 1
+  - type: ADCore.NDStats
+    PORT: ACE01.STATS
+    NDARRAY_PORT: ACE01
+    HIST_SIZE: 50
+    P: "SPARC:ACE01:"
+    R: "Stats1:"
+    XSIZE: 1400
+    YSIZE: 768
+    ENABLED: 1
 
   - type: epics.PostStartupCommand 
     command: dbl              ## dumps PV NAMES
