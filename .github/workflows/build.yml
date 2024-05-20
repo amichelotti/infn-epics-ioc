@@ -67,7 +67,11 @@ jobs:
           ibek ioc generate-schema --output ibek.ioc.schema.json
 
       # TODO add back in some tests that run INSIDE the container
-
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          
       - name: test-supports
         run: |
           # List all files in the support directory
