@@ -74,4 +74,4 @@ RUN ibek support apt-install-runtime-packages
 
 ENV TARGET_ARCHITECTURE ${TARGET_ARCHITECTURE}
 
-ENTRYPOINT ["/bin/bash", "-c", "${IOC}/start.sh"]
+CMD ["/bin/bash", "-c", "${IOC}/start.sh"]

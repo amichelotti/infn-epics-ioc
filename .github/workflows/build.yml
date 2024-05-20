@@ -50,7 +50,7 @@ jobs:
           tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-${{ matrix.architecture }}-${{ matrix.target }}:${{ github.ref_name }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
+      
   release:
     # Release on tag push - publish ioc schema
     needs: [build-push-images]
@@ -68,9 +68,19 @@ jobs:
 
       # TODO add back in some tests that run INSIDE the container
 
-      - name: Github Release
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v0.1.15
-        with:
-          files: |
-            ibek.ioc.schema.json
-          generate_release_notes: true
+      - name: test-supports
+        run: |
+          # List all files in the support directory
+          supps=$(ls support/*)
+          # Define the path to the ibek definition files
+          defs='/epics/ibek-defs/*.ibek.support.yaml'
+          # Iterate over each support file
+          for k in $supps; do
+            echo "* Testing $k"
+            # Generate the runtime for each support file using the definitions
+            ibek runtime generate "$k" $defs
+          done
+
+
+
+
