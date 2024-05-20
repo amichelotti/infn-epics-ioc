@@ -22,14 +22,14 @@ WORKDIR ${SOURCE_FOLDER}/ibek-support
 COPY ibek-support/_global/ _global
 
 COPY ibek-support/iocStats/ iocStats
-RUN iocStats/install.sh 3.1.16
+RUN iocStats/install.sh 3.2.0
 
 ################################################################################
 #  TODO - Add further support module installations here
 ################################################################################
 
 COPY ibek-support/asyn/ asyn/
-RUN asyn/install.sh R4-42
+RUN asyn/install.sh R4-44
 
 COPY ibek-support/autosave/ autosave/
 RUN autosave/install.sh R5-11
@@ -37,17 +37,42 @@ RUN autosave/install.sh R5-11
 COPY ibek-support/busy/ busy/
 RUN busy/install.sh R1-7-3
 
+COPY ibek-support/StreamDevice/ StreamDevice/
+RUN StreamDevice/install.sh 2.8.24
+
 COPY ibek-support/sscan/ sscan/
 RUN sscan/install.sh R2-11-6
 
 COPY ibek-support/calc/ calc/
 RUN calc/install.sh R3-7-5
 
+COPY ibek-support/motor/ motor/
+RUN motor/install.sh R7-3
+
+COPY ibek-support/motorMotorSim/ motorMotorSim/
+RUN motorMotorSim/install.sh R1-2
+
+COPY ibek-support/ADCore/ ADCore/
+RUN ADCore/install.sh R3-13
+
+COPY ibek-support/ADGenICam ADGenICam/
+RUN ADGenICam/install.sh R1-9
+
+COPY ibek-support/ADAravis/ ADAravis/
+RUN ADAravis/install.sh R2-3
+
+COPY ibek-support/ADSimDetector ADSimDetector/
+RUN ADSimDetector/install.sh R2-10
+
+#COPY ibek-support/lakeshore340  lakeshore340/
+#RUN  lakeshore340/install.sh 2-6
+
 COPY ibek-support/modbus/ modbus/
 RUN modbus/install.sh R3-3
 
-# COPY ibek-support/caenels-easy-driver/ caenels-easy-driver/
-# RUN caenels-easy-driver/install.sh master
+COPY ibek-support/motorNewport motorNewport/
+RUN motorNewport/install.sh R1-2-1
+
 
 
 # get the ioc source and build it
