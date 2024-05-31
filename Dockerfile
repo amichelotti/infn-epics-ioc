@@ -73,6 +73,8 @@ RUN modbus/install.sh R3-3
 COPY ibek-support/motorNewport motorNewport/
 RUN motorNewport/install.sh R1-2-1
 
+COPY ibek-support/biltItest biltItest/
+RUN biltItest/install.sh main
 
 
 # get the ioc source and build it
