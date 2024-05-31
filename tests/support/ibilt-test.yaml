@@ -1,0 +1,29 @@
+
+ioc_name: bilttest
+description: bilttest
+
+entities:
+
+  - type: biltItest.configure
+    controllerName: BILT01
+    P: "ELI:BILT"
+    IP: pselibilt001.lnf.infn.it
+    TCPPORT: 5025
+
+  - type: biltItest.device
+    controller: BILT01
+    P: "MEA1"
+    id: 1
+    max: 2
+  
+  # - type: biltItest.device
+  #   controller: BILT01
+  #   P: "MEA2"
+  #   id: 2
+  #   max: 2
+    
+  # - type: biltItest.device
+  #   controller: BILT01
+  #   P: "MEA3"
+  #   id: 3
+  #   max: 2
